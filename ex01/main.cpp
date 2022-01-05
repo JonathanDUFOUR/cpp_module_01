@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 05:11:09 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 07:06:33 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/05 06:49:25 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/05 07:07:38 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,22 @@
 #include <iostream>
 #include "Zombie.hpp"
 
-Zombie	*newZombie(std::string const name);
-void	randomChump(std::string const name);
+Zombie	*zombieHorde(int const n, std::string const name);
 
 int	main(void)
 {
-	Zombie	*z0;
-	Zombie	*z1;
-	Zombie	z2("Sylvanas");
-	Zombie	z3("Uther");
+	Zombie		*horde;
+	int const	n = 7;
+	int			i;
 
-	z0 = newZombie("Illidan");
-	if (!z0)
+	horde = zombieHorde(n, "Vol'jin");
+	if (!horde)
 	{
-		std::cerr << "Error: newZombie() failed" << std::endl;
+		std::cerr << "Error: zombieHorde() failed" << std::endl;
 		return EXIT_FAILURE;
 	}
-	z1 = newZombie("Thrall");
-	if (!z1)
-	{
-		delete z0;
-		std::cerr << "Error: newZombie() failed" << std::endl;
-		return EXIT_FAILURE;
-	}
-	z0->announce();
-	z1->announce();
-	z2.announce();
-	z3.announce();
-	delete z0;
-	randomChump("Anduin");
-	delete z1;
+	for (i = 0 ; i < n ; ++i)
+		horde[i].announce();
+	delete[] horde;
 	return EXIT_SUCCESS;
 }

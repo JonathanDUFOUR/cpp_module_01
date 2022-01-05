@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 05:15:28 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 07:06:48 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/05 06:47:06 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/05 07:08:11 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie	*newZombie(std::string const name)
+Zombie	*zombieHorde(int const n, std::string const name)
 {
 	Zombie	*output;
+	int		i;
 
-	output = new Zombie;
+	output = new Zombie[n];
 	if (!output)
 		return NULL;
-	output->setName(name);
+	for (i = 0 ; i < n ; ++i)
+		output[i].setName(name);
 	return output;
 }

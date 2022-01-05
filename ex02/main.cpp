@@ -5,44 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 05:11:09 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 07:06:33 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/05 07:34:38 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/05 07:46:50 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cstdlib>
 #include <iostream>
-#include "Zombie.hpp"
-
-Zombie	*newZombie(std::string const name);
-void	randomChump(std::string const name);
+#include <string>
 
 int	main(void)
 {
-	Zombie	*z0;
-	Zombie	*z1;
-	Zombie	z2("Sylvanas");
-	Zombie	z3("Uther");
+	std::string const			str = "HI THIS IS BRAIN";
+	std::string const *const	stringPTR = &str;
+	std::string const			&stringREF = str;
 
-	z0 = newZombie("Illidan");
-	if (!z0)
-	{
-		std::cerr << "Error: newZombie() failed" << std::endl;
-		return EXIT_FAILURE;
-	}
-	z1 = newZombie("Thrall");
-	if (!z1)
-	{
-		delete z0;
-		std::cerr << "Error: newZombie() failed" << std::endl;
-		return EXIT_FAILURE;
-	}
-	z0->announce();
-	z1->announce();
-	z2.announce();
-	z3.announce();
-	delete z0;
-	randomChump("Anduin");
-	delete z1;
+	// Display the string address
+	std::cout << "      &str: " << &str << std::endl;
+	std::cout << " stringPTR: " << stringPTR << std::endl;
+	std::cout << "&stringREF: " << &stringREF << std::endl;
+
+	// Display the string content
+	std::cout << "       str: " << str << std::endl;
+	std::cout << "*stringPTR: " << *stringPTR << std::endl;
+	std::cout << " stringREF: " << stringREF << std::endl;
 	return EXIT_SUCCESS;
 }

@@ -1,24 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 05:15:28 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 07:06:48 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/05 05:15:10 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/05 06:38:57 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-Zombie	*newZombie(std::string const name)
+# include <string>
+
+class	Zombie
 {
-	Zombie	*output;
+private:
+	// Attributes
+	std::string _name;
 
-	output = new Zombie;
-	if (!output)
-		return NULL;
-	output->setName(name);
-	return output;
-}
+public:
+	// Constructors
+	Zombie(void);
+	Zombie(std::string const name);
+
+	// Destructors
+	~Zombie(void);
+
+	// Accessors
+	void		setName(std::string const name);
+
+	std::string	getName(void) const;
+
+	// Methods
+	void		announce(void) const;
+};
+
+#endif
