@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 07:59:03 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 08:42:39 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/21 19:15:41 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ public:
 	std::string	getName(void) const;
 	Weapon		*getWeapon(void) const;
 
-	// Methods
+	// Member functions
 	void	attack(void) const;
 };
 

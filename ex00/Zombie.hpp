@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 05:15:10 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 06:38:57 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/21 19:15:41 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
 
 	std::string	getName(void) const;
 
-	// Methods
+	// Member functions
 	void		announce(void) const;
 };
 

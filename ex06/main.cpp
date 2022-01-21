@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Karen.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 13:03:29 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/21 19:15:41 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/06 14:11:53 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/06 14:30:17 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KAREN_HPP
-# define KAREN_HPP
+#include <cstdlib>
+#include <iostream>
+#include "Karen.hpp"
 
-# include <string>
-
-class Karen
+static int	__usage_err(void)
 {
-private:
-	// Member functions
-	void	debug(void) const;
-	void	info(void) const;
-	void	warning(void) const;
-	void	error(void) const;
+	std::cerr
+	<< "Error: wrong usage"
+	<< std::endl
+	<< "Usage: ./karenFilter <level>"
+	<< std::endl;
+	return EXIT_FAILURE;
+}
 
-public:
-	// Constructors
-	Karen(void);
+int	main(int const ac, char const **av)
+{
+	Karen	k0;
 
-	// Destructors
-	~Karen(void);
-
-	// Member functions
-	void	complain(std::string const lvl) const;
-};
-
-#endif
+	if (ac != 2)
+		return __usage_err();
+	k0.complain(av[1]);
+	return EXIT_SUCCESS;
+}
