@@ -5,31 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 06:49:25 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 07:07:38 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/05 07:53:23 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/28 20:59:05 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cstdlib>
-#include <iostream>
-#include "Zombie.hpp"
-
-Zombie	*zombieHorde(int const n, std::string const name);
+#include "class/HumanA.hpp"
+#include "class/HumanB.hpp"
+#include "class/Weapon.hpp"
 
 int	main(void)
 {
-	Zombie		*horde;
-	int const	n = 7;
-	int			i;
-
-	horde = zombieHorde(n, "Vol'jin");
-	if (!horde)
 	{
-		std::cerr << "Error: zombieHorde() failed" << std::endl;
-		return EXIT_FAILURE;
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
 	}
-	for (i = 0 ; i < n ; ++i)
-		horde[i].announce();
-	delete[] horde;
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
 	return EXIT_SUCCESS;
 }

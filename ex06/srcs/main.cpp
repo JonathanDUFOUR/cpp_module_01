@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 05:15:28 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 07:06:48 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/06 14:11:53 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/29 00:24:07 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <cstdlib>
+#include <iostream>
+#include "class/Karen.hpp"
 
-Zombie	*newZombie(std::string const name)
+static int	__usage_err(void)
 {
-	Zombie	*output;
+	std::cerr
+	<< "Error: wrong usage"
+	<< std::endl
+	<< "Usage: ./karenFilter <level>"
+	<< std::endl;
+	return EXIT_FAILURE;
+}
 
-	output = new Zombie;
-	if (!output)
-		return NULL;
-	output->setName(name);
-	return output;
+int	main(int const ac, char const **av)
+{
+	Karen	k0;
+
+	if (ac != 2)
+		return __usage_err();
+	k0.complain(av[1]);
+	return EXIT_SUCCESS;
 }

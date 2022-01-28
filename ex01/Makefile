@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/05 06:43:59 by jodufour          #+#    #+#              #
-#    Updated: 2022/01/05 07:32:32 by jodufour         ###   ########.fr        #
+#    Updated: 2022/01/28 20:53:42 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,15 +26,18 @@ NAME			=	ex01.out
 #######################################
 #             DIRECTORIES             #
 #######################################
-SRC_DIR			=	./
+SRC_DIR			=	srcs/
 OBJ_DIR			=	objs/
+PRV_DIR			=	private/
 
 ######################################
 #            SOURCE FILES            #
 ######################################
 SRC				=	\
-					main.cpp		\
-					Zombie.cpp		\
+					${addprefix class/,	\
+						Zombie.cpp		\
+					}					\
+					main.cpp			\
 					ZombieHorde.cpp
 
 ######################################
@@ -51,6 +54,7 @@ DEP				=	${OBJ:.o=.d}
 CPPFLAGS		=	-Wall -Wextra -Werror
 CPPFLAGS		+=	-std=c++98
 CPPFLAGS		+=	-MMD -MP
+CPPFLAGS		+=	-I${PRV_DIR}
 
 LDFLAGS			=	
 

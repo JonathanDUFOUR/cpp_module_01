@@ -1,56 +1,69 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 05:14:56 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/21 19:16:43 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/05 07:59:32 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/28 20:58:54 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Zombie.hpp"
+#include "class/HumanB.hpp"
 
 // ************************************************************************** //
 //                                Constructors                                //
 // ************************************************************************** //
 
-Zombie::Zombie(void) :
+HumanB::HumanB(void) :
 	_name("defaultName") {}
 
-Zombie::Zombie(std::string const name) :
+HumanB::HumanB(std::string const name) :
 	_name(name) {}
 
 // ************************************************************************* //
 //                                Destructors                                //
 // ************************************************************************* //
 
-Zombie::~Zombie(void)
-{
-	std::cout << "R.I.P. " << this->_name << std::endl;
-}
+HumanB::~HumanB(void) {}
 
 // ************************************************************************* //
 //                                 Accessors                                 //
 // ************************************************************************* //
 
-std::string	Zombie::getName(void) const
+void	HumanB::setName(std::string const name)
+{
+	this->_name = name;
+}
+
+void	HumanB::setWeapon(Weapon &weapon)
+{
+	this->_weapon = &weapon;
+}
+
+std::string	HumanB::getName(void) const
 {
 	return this->_name;
 }
 
-void	Zombie::setName(std::string const name)
+Weapon	*HumanB::getWeapon(void) const
 {
-	this->_name = name;
+	return this->_weapon;
 }
 
 // ************************************************************************* //
 //                          Public Member Functions                          //
 // ************************************************************************* //
 
-void	Zombie::announce(void) const
+void	HumanB::attack(void) const
 {
-	std::cout << this->_name << " BraiiiiiiinnnzzzZ..." << std::endl;
+	if (this->_weapon->getType().empty())
+		return ;
+	std::cout
+	<< this->_name
+	<< " attacks with his "
+	<< this->_weapon->getType()
+	<< std::endl;
 }

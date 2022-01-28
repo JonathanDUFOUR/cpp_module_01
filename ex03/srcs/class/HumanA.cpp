@@ -1,54 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 07:59:32 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/21 19:18:08 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/05 07:53:56 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/28 20:58:47 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "HumanB.hpp"
+#include "class/HumanA.hpp"
 
 // ************************************************************************** //
 //                                Constructors                                //
 // ************************************************************************** //
 
-HumanB::HumanB(void) :
-	_name("defaultName") {}
+HumanA::HumanA(void) :
+	_name("defaultName")
+{
+	this->_weapon->setType("defaultWeapon");
+}
 
-HumanB::HumanB(std::string const name) :
-	_name(name) {}
+HumanA::HumanA(std::string const name, Weapon &weapon) :
+	_name(name),
+	_weapon(&weapon) {}
 
 // ************************************************************************* //
 //                                Destructors                                //
 // ************************************************************************* //
 
-HumanB::~HumanB(void) {}
+HumanA::~HumanA(void) {}
 
 // ************************************************************************* //
 //                                 Accessors                                 //
 // ************************************************************************* //
 
-void	HumanB::setName(std::string const name)
+void	HumanA::setName(std::string const name)
 {
 	this->_name = name;
 }
 
-void	HumanB::setWeapon(Weapon &weapon)
+void	HumanA::setWeapon(Weapon &weapon)
 {
 	this->_weapon = &weapon;
 }
 
-std::string	HumanB::getName(void) const
+std::string	HumanA::getName(void) const
 {
 	return this->_name;
 }
 
-Weapon	*HumanB::getWeapon(void) const
+Weapon	*HumanA::getWeapon(void) const
 {
 	return this->_weapon;
 }
@@ -57,10 +61,8 @@ Weapon	*HumanB::getWeapon(void) const
 //                          Public Member Functions                          //
 // ************************************************************************* //
 
-void	HumanB::attack(void) const
+void	HumanA::attack(void) const
 {
-	if (this->_weapon->getType().empty())
-		return ;
 	std::cout
 	<< this->_name
 	<< " attacks with his "

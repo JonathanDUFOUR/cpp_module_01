@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 13:02:52 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 13:19:54 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/05 05:15:28 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/28 20:50:08 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cstdlib>
-#include "Karen.hpp"
+#include "class/Zombie.hpp"
 
-int	main(void)
+Zombie	*newZombie(std::string const name)
 {
-	Karen	k0;
+	Zombie	*output;
 
-	k0.complain("INFO");
-	k0.complain("ERROR");
-	k0.complain("DEBUG");
-	k0.complain("WARNING");
-	return EXIT_SUCCESS;
+	output = new Zombie;
+	if (!output)
+		return NULL;
+	output->setName(name);
+	return output;
 }

@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/05 07:50:54 by jodufour          #+#    #+#              #
-#    Updated: 2022/01/05 08:02:06 by jodufour         ###   ########.fr        #
+#    Updated: 2022/01/28 20:58:28 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,17 +26,20 @@ NAME			=	ex03.out
 #######################################
 #             DIRECTORIES             #
 #######################################
-SRC_DIR			=	./
+SRC_DIR			=	srcs/
 OBJ_DIR			=	objs/
+PRV_DIR			=	private/
 
 ######################################
 #            SOURCE FILES            #
 ######################################
 SRC				=	\
-					HumanA.cpp	\
-					HumanB.cpp	\
-					main.cpp	\
-					Weapon.cpp
+					${addprefix class/,	\
+						HumanA.cpp		\
+						HumanB.cpp		\
+						Weapon.cpp		\
+					}					\
+					main.cpp
 
 ######################################
 #            OBJECT FILES            #
@@ -52,6 +55,7 @@ DEP				=	${OBJ:.o=.d}
 CPPFLAGS		=	-Wall -Wextra -Werror
 CPPFLAGS		+=	-std=c++98
 CPPFLAGS		+=	-MMD -MP
+CPPFLAGS		+=	-I${PRV_DIR}
 
 LDFLAGS			=	
 

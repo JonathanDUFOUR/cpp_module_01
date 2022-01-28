@@ -6,28 +6,22 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 05:14:56 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/21 19:16:01 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/28 20:52:34 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Zombie.hpp"
+#include "class/Zombie.hpp"
 
 // ************************************************************************** //
 //                                Constructors                                //
 // ************************************************************************** //
 
 Zombie::Zombie(void) :
-	_name("defaultName")
-{
-	
-}
+	_name("defaultName") {}
 
 Zombie::Zombie(std::string const name) :
-	_name(name)
-{
-	
-}
+	_name(name) {}
 
 // ************************************************************************* //
 //                                Destructors                                //

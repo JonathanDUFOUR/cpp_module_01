@@ -1,71 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 07:53:56 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/21 19:17:49 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/05 08:01:37 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/28 20:59:00 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "HumanA.hpp"
+#include "class/Weapon.hpp"
 
 // ************************************************************************** //
 //                                Constructors                                //
 // ************************************************************************** //
 
-HumanA::HumanA(void) :
-	_name("defaultName")
-{
-	this->_weapon->setType("defaultWeapon");
-}
+Weapon::Weapon(void) {}
 
-HumanA::HumanA(std::string const name, Weapon &weapon) :
-	_name(name),
-	_weapon(&weapon) {}
+Weapon::Weapon(std::string const type) :
+	_type(type) {}
 
 // ************************************************************************* //
 //                                Destructors                                //
 // ************************************************************************* //
 
-HumanA::~HumanA(void) {}
+Weapon::~Weapon(void) {}
 
 // ************************************************************************* //
 //                                 Accessors                                 //
 // ************************************************************************* //
 
-void	HumanA::setName(std::string const name)
+void	Weapon::setType(std::string const type)
 {
-	this->_name = name;
+	this->_type = type;
 }
 
-void	HumanA::setWeapon(Weapon &weapon)
+std::string	Weapon::getType(void) const
 {
-	this->_weapon = &weapon;
-}
-
-std::string	HumanA::getName(void) const
-{
-	return this->_name;
-}
-
-Weapon	*HumanA::getWeapon(void) const
-{
-	return this->_weapon;
-}
-
-// ************************************************************************* //
-//                          Public Member Functions                          //
-// ************************************************************************* //
-
-void	HumanA::attack(void) const
-{
-	std::cout
-	<< this->_name
-	<< " attacks with his "
-	<< this->_weapon->getType()
-	<< std::endl;
+	return this->_type;
 }

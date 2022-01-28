@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/05 05:10:30 by jodufour          #+#    #+#              #
-#    Updated: 2022/01/05 06:37:21 by jodufour         ###   ########.fr        #
+#    Updated: 2022/01/28 20:49:15 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,17 +26,20 @@ NAME			=	ex00.out
 #######################################
 #             DIRECTORIES             #
 #######################################
-SRC_DIR			=	./
+SRC_DIR			=	srcs/
 OBJ_DIR			=	objs/
+PRV_DIR			=	private/
 
 ######################################
 #            SOURCE FILES            #
 ######################################
 SRC				=	\
-					main.cpp		\
-					newZombie.cpp	\
-					randomChump.cpp	\
-					Zombie.cpp
+					${addprefix class/,	\
+						Zombie.cpp		\
+					}					\
+					main.cpp			\
+					newZombie.cpp		\
+					randomChump.cpp
 
 ######################################
 #            OBJECT FILES            #
@@ -52,6 +55,7 @@ DEP				=	${OBJ:.o=.d}
 CPPFLAGS		=	-Wall -Wextra -Werror
 CPPFLAGS		+=	-std=c++98
 CPPFLAGS		+=	-MMD -MP
+CPPFLAGS		+=	-I${PRV_DIR}
 
 LDFLAGS			=	
 

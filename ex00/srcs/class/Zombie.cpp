@@ -1,42 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 08:01:37 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 08:16:46 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/05 05:14:56 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/28 20:49:52 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include <iostream>
+#include "class/Zombie.hpp"
 
 // ************************************************************************** //
 //                                Constructors                                //
 // ************************************************************************** //
 
-Weapon::Weapon(void) {}
+Zombie::Zombie(void) :
+	_name("defaultName")
+{
+	
+}
 
-Weapon::Weapon(std::string const type) :
-	_type(type) {}
+Zombie::Zombie(std::string const name) :
+	_name(name)
+{
+	
+}
 
 // ************************************************************************* //
 //                                Destructors                                //
 // ************************************************************************* //
 
-Weapon::~Weapon(void) {}
+Zombie::~Zombie(void)
+{
+	std::cout << "R.I.P. " << this->_name << std::endl;
+}
 
 // ************************************************************************* //
 //                                 Accessors                                 //
 // ************************************************************************* //
 
-void	Weapon::setType(std::string const type)
+std::string	Zombie::getName(void) const
 {
-	this->_type = type;
+	return this->_name;
 }
 
-std::string	Weapon::getType(void) const
+void	Zombie::setName(std::string const name)
 {
-	return this->_type;
+	this->_name = name;
+}
+
+// ************************************************************************* //
+//                          Public Member Functions                          //
+// ************************************************************************* //
+
+void	Zombie::announce(void) const
+{
+	std::cout << this->_name << " BraiiiiiiinnnzzzZ..." << std::endl;
 }
