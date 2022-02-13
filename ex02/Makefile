@@ -6,51 +6,51 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/05 07:51:01 by jodufour          #+#    #+#              #
-#    Updated: 2022/01/28 20:55:15 by jodufour         ###   ########.fr        #
+#    Updated: 2022/02/13 14:56:35 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ######################################
 #              COMMANDS              #
 ######################################
-CXX				=	c++ -c
-LINK			=	c++
-MKDIR			=	mkdir -p
-RM				=	rm -rf
+CXX			=	c++ -c
+LINK		=	c++
+MKDIR		=	mkdir -p
+RM			=	rm -rf
 
 ######################################
 #             EXECUTABLE             #
 ######################################
-NAME			=	ex02.out
+NAME		=	ex02.out
 
 #######################################
 #             DIRECTORIES             #
 #######################################
-SRC_DIR			=	srcs/
-OBJ_DIR			=	objs/
+SRC_DIR		=	srcs/
+OBJ_DIR		=	objs/
 
 ######################################
 #            SOURCE FILES            #
 ######################################
-SRC				=	\
-					main.cpp
+SRC			=	\
+				main.cpp
 
 ######################################
 #            OBJECT FILES            #
 ######################################
-OBJ				=	${SRC:.cpp=.o}
-OBJ				:=	${addprefix ${OBJ_DIR}, ${OBJ}}
+OBJ			=	${SRC:.cpp=.o}
+OBJ			:=	${addprefix ${OBJ_DIR}, ${OBJ}}
 
-DEP				=	${OBJ:.o=.d}
+DEP			=	${OBJ:.o=.d}
 
 #######################################
 #                FLAGS                #
 #######################################
-CPPFLAGS		=	-Wall -Wextra -Werror
-CPPFLAGS		+=	-std=c++98
-CPPFLAGS		+=	-MMD -MP
+CPPFLAGS	=	-Wall -Wextra -Werror
+CPPFLAGS	+=	-std=c++98
+CPPFLAGS	+=	-MMD -MP
 
-LDFLAGS			=	
+LDFLAGS		=	
 
 ifeq (${DEBUG}, 1)
 	CPPFLAGS	+=	-g
@@ -71,10 +71,10 @@ ${OBJ_DIR}%.o: ${SRC_DIR}%.cpp
 	${CXX} ${CPPFLAGS} $< ${OUTPUT_OPTION}
 
 clean:
-	${RM} ${OBJ_DIR} ${NAME}
+	${RM} ${OBJ_DIR} ${NAME} vgcore.*
 
 fclean:
-	${RM} ${OBJ_DIR} ${NAME}
+	${RM} ${OBJ_DIR} ${NAME} vgcore.*
 
 re: clean all
 
@@ -82,4 +82,4 @@ fre: fclean all
 
 -include /home/jodufour/Templates/mk_files/coffee.mk
 
-.PHONY:	all clean fclean re fre
+.PHONY: all clean fclean re fre

@@ -6,58 +6,58 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/05 05:10:30 by jodufour          #+#    #+#              #
-#    Updated: 2022/01/28 20:49:15 by jodufour         ###   ########.fr        #
+#    Updated: 2022/02/13 14:55:23 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ######################################
 #              COMMANDS              #
 ######################################
-CXX				=	c++ -c
-LINK			=	c++
-MKDIR			=	mkdir -p
-RM				=	rm -rf
+CXX			=	c++ -c
+LINK		=	c++
+MKDIR		=	mkdir -p
+RM			=	rm -rf
 
 ######################################
 #             EXECUTABLE             #
 ######################################
-NAME			=	ex00.out
+NAME		=	ex00.out
 
 #######################################
 #             DIRECTORIES             #
 #######################################
-SRC_DIR			=	srcs/
-OBJ_DIR			=	objs/
-PRV_DIR			=	private/
+SRC_DIR		=	srcs/
+OBJ_DIR		=	objs/
+PRV_DIR		=	private/
 
 ######################################
 #            SOURCE FILES            #
 ######################################
-SRC				=	\
-					${addprefix class/,	\
-						Zombie.cpp		\
-					}					\
-					main.cpp			\
-					newZombie.cpp		\
-					randomChump.cpp
+SRC			=	\
+				${addprefix class/,	\
+					Zombie.cpp		\
+				}					\
+				main.cpp			\
+				newZombie.cpp		\
+				randomChump.cpp
 
 ######################################
 #            OBJECT FILES            #
 ######################################
-OBJ				=	${SRC:.cpp=.o}
-OBJ				:=	${addprefix ${OBJ_DIR}, ${OBJ}}
+OBJ			=	${SRC:.cpp=.o}
+OBJ			:=	${addprefix ${OBJ_DIR}, ${OBJ}}
 
-DEP				=	${OBJ:.o=.d}
+DEP			=	${OBJ:.o=.d}
 
 #######################################
 #                FLAGS                #
 #######################################
-CPPFLAGS		=	-Wall -Wextra -Werror
-CPPFLAGS		+=	-std=c++98
-CPPFLAGS		+=	-MMD -MP
-CPPFLAGS		+=	-I${PRV_DIR}
+CPPFLAGS	=	-Wall -Wextra -Werror
+CPPFLAGS	+=	-std=c++98
+CPPFLAGS	+=	-MMD -MP
+CPPFLAGS	+=	-I${PRV_DIR}
 
-LDFLAGS			=	
+LDFLAGS		=	
 
 ifeq (${DEBUG}, 1)
 	CPPFLAGS	+=	-g
@@ -78,10 +78,10 @@ ${OBJ_DIR}%.o: ${SRC_DIR}%.cpp
 	${CXX} ${CPPFLAGS} $< ${OUTPUT_OPTION}
 
 clean:
-	${RM} ${OBJ_DIR} ${NAME}
+	${RM} ${OBJ_DIR} ${NAME} vgcore.*
 
 fclean:
-	${RM} ${OBJ_DIR} ${NAME}
+	${RM} ${OBJ_DIR} ${NAME} vgcore.*
 
 re: clean all
 
@@ -89,4 +89,4 @@ fre: fclean all
 
 -include /home/jodufour/Templates/mk_files/coffee.mk
 
-.PHONY:	all clean fclean re fre
+.PHONY: all clean fclean re fre

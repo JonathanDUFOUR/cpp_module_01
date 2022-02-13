@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 07:34:38 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 07:46:50 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/13 14:46:50 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 
 int	main(void)
 {
-	std::string const			str = "HI THIS IS BRAIN";
-	std::string const *const	stringPTR = &str;
-	std::string const			&stringREF = str;
+	std::string const			stringRAW = "HI THIS IS BRAIN";
+	std::string const *const	stringPTR = &stringRAW;
+	std::string const			&stringREF = stringRAW;
 
 	// Display the string address
-	std::cout << "      &str: " << &str << std::endl;
+	std::cout << "&stringRAW: " << &stringRAW << std::endl;
 	std::cout << " stringPTR: " << stringPTR << std::endl;
 	std::cout << "&stringREF: " << &stringREF << std::endl;
 
 	// Display the string content
-	std::cout << "       str: " << str << std::endl;
+	std::cout << " stringRAW: " << stringRAW << std::endl;
 	std::cout << "*stringPTR: " << *stringPTR << std::endl;
 	std::cout << " stringREF: " << stringREF << std::endl;
 	return EXIT_SUCCESS;

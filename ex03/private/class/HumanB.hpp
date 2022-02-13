@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 07:59:03 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/21 19:15:41 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/13 15:54:34 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,21 @@ class	HumanB
 {
 private:
 	// Attributes
-	std::string	_name;
-	Weapon		*_weapon;
+	std::string const	_name;
+	Weapon				*_weapon;
 
 public:
 	// Constructors
-	HumanB(void);
-	HumanB(std::string const name);
+	HumanB(std::string const &name);
 
 	// Destructors
 	~HumanB(void);
 
 	// Accessors
-	void		setName(std::string const name);
-	void		setWeapon(Weapon &weapon);
+	std::string const	&getName(void) const;
+	Weapon const		*getWeapon(void) const;
 
-	std::string	getName(void) const;
-	Weapon		*getWeapon(void) const;
+	void				setWeapon(Weapon &weapon);
 
 	// Member functions
 	void	attack(void) const;

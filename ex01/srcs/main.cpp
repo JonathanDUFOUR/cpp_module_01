@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 06:49:25 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/28 20:52:44 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/13 14:41:52 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include "class/Zombie.hpp"
 
-Zombie	*zombieHorde(int const n, std::string const name);
+Zombie	*zombieHorde(int const n, std::string const &name);
 
 int	main(void)
 {
@@ -22,7 +22,7 @@ int	main(void)
 	int const	n = 7;
 	int			i;
 
-	horde = zombieHorde(n, "Vol'jin");
+	horde = zombieHorde(n, std::string("Vol'jin"));
 	if (!horde)
 	{
 		std::cerr << "Error: zombieHorde() failed" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:07:38 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 00:25:37 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/13 20:44:05 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,76 +24,6 @@ Karen::Karen(void) {}
 // ************************************************************************* //
 
 Karen::~Karen(void) {}
-
-// ************************************************************************* //
-//                          Public Member Functions                          //
-// ************************************************************************* //
-
-void	Karen::complain(std::string const lvl) const
-{
-	std::string const	lvl_arr[4] = {
-		"DEBUG",
-		"INFO",
-		"WARNING",
-		"ERROR"
-	};
-	// void (Karen::*fct_arr[4])(void) const = {
-	// 	&Karen::debug,
-	// 	&Karen::info,
-	// 	&Karen::warning,
-	// 	&Karen::error
-	// };
-	std::size_t	i;
-
-	for (i = 0 ; i < 4 && lvl.compare(lvl_arr[i]) ; ++i);
-	if (i == 4)
-	{
-		std::cout << "[ Probably complaining about insignificant problems ]"
-		<< std::endl;
-		return ;
-	}
-	// while (i < 4)
-	// {
-	// 	(this->*fct_arr[i])();
-	// 	if (++i < 4)
-	// 		std::cout << std::endl;
-	// }
-	switch (i)
-	{
-	case 0:
-		this->debug();
-		std::cout << std::endl;
-		this->info();
-		std::cout << std::endl;
-		this->warning();
-		std::cout << std::endl;
-		this->error();
-		std::cout << std::endl;
-		break ;
-	case 1:
-		this->info();
-		std::cout << std::endl;
-		this->warning();
-		std::cout << std::endl;
-		this->error();
-		std::cout << std::endl;
-		break ;
-	case 2:
-		this->warning();
-		std::cout << std::endl;
-		this->error();
-		std::cout << std::endl;
-		break ;
-	case 3:
-		this->error();
-		std::cout << std::endl;
-		break ;
-	default:
-		std::cout << "[ Probably complaining about insignificant problems ]"
-		<< std::endl;
-		break ;
-	}
-}
 
 // ************************************************************************** //
 //                          Private Member Functions                          //
@@ -138,3 +68,68 @@ void	Karen::error(void) const
 	<< "This is unacceptable, I want to speak to the manager now."
 	<< std::endl;
 }
+
+// ************************************************************************* //
+//                          Public Member Functions                          //
+// ************************************************************************* //
+
+void	Karen::complain(std::string const &lvl) const
+{
+	int	i;
+
+	for (i = 0 ; Karen::g_lookup[i].fct && Karen::g_lookup[i].key.compare(lvl) ; ++i);
+	// if (Karen::g_lookup[i].fct)
+	// 	while (Karen::g_lookup[i].fct)
+	// 		(this->*Karen::g_lookup[i++].fct)();
+	// else
+	// 	std::cout
+	// 	<< "[ Probably complaining about insignificant problems ]"
+	// 	<< std::endl;
+	switch (i)
+	{
+	case 0:
+		this->debug();
+		std::cout << std::endl;
+		this->info();
+		std::cout << std::endl;
+		this->warning();
+		std::cout << std::endl;
+		this->error();
+		std::cout << std::endl;
+		break ;
+	case 1:
+		this->info();
+		std::cout << std::endl;
+		this->warning();
+		std::cout << std::endl;
+		this->error();
+		std::cout << std::endl;
+		break ;
+	case 2:
+		this->warning();
+		std::cout << std::endl;
+		this->error();
+		std::cout << std::endl;
+		break ;
+	case 3:
+		this->error();
+		std::cout << std::endl;
+		break ;
+	default:
+		std::cout << "[ Probably complaining about insignificant problems ]"
+		<< std::endl;
+		break ;
+	}
+}
+
+// ************************************************************************** //
+//                             Private Attributes                             //
+// ************************************************************************** //
+
+t_keyval const	Karen::g_lookup[] = {
+	{std::string("DEBUG"), &Karen::debug},
+	{std::string("INFO"), &Karen::info},
+	{std::string("WARNING"), &Karen::warning},
+	{std::string("ERROR"), &Karen::error},
+	{std::string(""), NULL}
+};

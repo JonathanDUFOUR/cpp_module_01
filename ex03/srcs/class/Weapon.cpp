@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 08:01:37 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/28 20:59:00 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/13 16:06:48 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 Weapon::Weapon(void) {}
 
-Weapon::Weapon(std::string const type) :
+Weapon::Weapon(std::string const &type) :
 	_type(type) {}
 
 // ************************************************************************* //
@@ -31,12 +31,12 @@ Weapon::~Weapon(void) {}
 //                                 Accessors                                 //
 // ************************************************************************* //
 
-void	Weapon::setType(std::string const type)
-{
-	this->_type = type;
-}
-
-std::string	Weapon::getType(void) const
+std::string const	&Weapon::getType(void) const
 {
 	return this->_type;
+}
+
+void	Weapon::setType(std::string const &type)
+{
+	this->_type = type;
 }

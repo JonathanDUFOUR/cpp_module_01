@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 05:14:56 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 03:56:48 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/13 14:31:02 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,10 @@
 // ************************************************************************** //
 
 Zombie::Zombie(void) :
-	_name("defaultName")
-{
-	
-}
+	_name(std::string("defaultName")) {}
 
-Zombie::Zombie(std::string const name) :
-	_name(name)
-{
-	
-}
+Zombie::Zombie(std::string const &name) :
+	_name(name) {}
 
 // ************************************************************************* //
 //                                Destructors                                //
@@ -42,12 +36,7 @@ Zombie::~Zombie(void)
 //                                 Accessors                                 //
 // ************************************************************************* //
 
-std::string	Zombie::getName(void) const
-{
-	return this->_name;
-}
-
-void	Zombie::setName(std::string const name)
+void	Zombie::setName(std::string const &name)
 {
 	this->_name = name;
 }
@@ -58,5 +47,5 @@ void	Zombie::setName(std::string const name)
 
 void	Zombie::announce(void) const
 {
-	std::cout << this->_name << " BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 07:59:32 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/28 20:58:54 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/13 15:59:25 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@
 //                                Constructors                                //
 // ************************************************************************** //
 
-HumanB::HumanB(void) :
-	_name("defaultName") {}
-
-HumanB::HumanB(std::string const name) :
-	_name(name) {}
+HumanB::HumanB(std::string const &name) :
+	_name(name),
+	_weapon(NULL) {}
 
 // ************************************************************************* //
 //                                Destructors                                //
@@ -33,24 +31,19 @@ HumanB::~HumanB(void) {}
 //                                 Accessors                                 //
 // ************************************************************************* //
 
-void	HumanB::setName(std::string const name)
+std::string const	&HumanB::getName(void) const
 {
-	this->_name = name;
+	return this->_name;
+}
+
+Weapon const	*HumanB::getWeapon(void) const
+{
+	return this->_weapon;
 }
 
 void	HumanB::setWeapon(Weapon &weapon)
 {
 	this->_weapon = &weapon;
-}
-
-std::string	HumanB::getName(void) const
-{
-	return this->_name;
-}
-
-Weapon	*HumanB::getWeapon(void) const
-{
-	return this->_weapon;
 }
 
 // ************************************************************************* //
@@ -59,11 +52,11 @@ Weapon	*HumanB::getWeapon(void) const
 
 void	HumanB::attack(void) const
 {
-	if (this->_weapon->getType().empty())
+	if (!this->_weapon)
 		return ;
 	std::cout
 	<< this->_name
-	<< " attacks with his "
+	<< " attacks with their "
 	<< this->_weapon->getType()
 	<< std::endl;
 }
