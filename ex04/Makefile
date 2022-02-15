@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/05 08:55:56 by jodufour          #+#    #+#              #
-#    Updated: 2022/02/13 14:57:39 by jodufour         ###   ########.fr        #
+#    Updated: 2022/02/15 04:39:07 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,10 +71,10 @@ ${OBJ_DIR}%.o: ${SRC_DIR}%.cpp
 	${CXX} ${CPPFLAGS} $< ${OUTPUT_OPTION}
 
 clean:
-	${RM} ${OBJ_DIR} ${NAME} vgcore.*
+	${RM} ${OBJ_DIR} ${NAME} vgcore.* *.replace
 
 fclean:
-	${RM} ${OBJ_DIR} ${NAME} vgcore.*
+	${RM} ${OBJ_DIR} ${NAME} vgcore.* *.replace
 
 re: clean all
 
