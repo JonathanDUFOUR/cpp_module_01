@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 05:14:56 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/13 14:19:52 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/16 00:00:07 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,24 @@
 // ************************************************************************** //
 
 Zombie::Zombie(void) :
-	_name("defaultName") {}
+	_name(std::string("defaultName"))
+{
+	if (DEBUG)
+		std::cout
+		<< "Creating Zombie "
+		<< this->_name
+		<< std::endl;
+}
 
-Zombie::Zombie(std::string const name) :
-	_name(name) {}
+Zombie::Zombie(std::string const &name) :
+	_name(name)
+{
+	if (DEBUG)
+		std::cout
+		<< "Creating Zombie "
+		<< this->_name
+		<< std::endl;
+}
 
 // ************************************************************************* //
 //                                Destructors                                //
@@ -29,7 +43,15 @@ Zombie::Zombie(std::string const name) :
 
 Zombie::~Zombie(void)
 {
-	std::cout << "R.I.P. " << this->_name << std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Destroying Zombie "
+		<< this->_name
+		<< std::endl;
+	std::cout
+	<< "R.I.P. "
+	<< this->_name
+	<< std::endl;
 }
 
 // ************************************************************************* //
@@ -38,5 +60,9 @@ Zombie::~Zombie(void)
 
 void	Zombie::announce(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Zombie::announce()"
+		<< std::endl;
 	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

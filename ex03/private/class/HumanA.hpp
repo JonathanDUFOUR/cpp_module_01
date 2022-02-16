@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 07:54:23 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/13 15:54:02 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/16 00:31:30 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define HUMANA_HPP
 
 # include "Weapon.hpp"
+
+# ifndef DEBUG
+#  define DEBUG 0
+# endif
 
 class	HumanA
 {

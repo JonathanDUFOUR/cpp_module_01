@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 07:53:56 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/13 15:58:39 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/15 23:59:00 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,27 @@
 
 HumanA::HumanA(std::string const &name, Weapon &weapon) :
 	_name(name),
-	_weapon(weapon) {}
+	_weapon(weapon)
+{
+	if (DEBUG)
+		std::cout
+		<< "Creating HumanA "
+		<< this->_name
+		<< std::endl;
+}
 
 // ************************************************************************* //
 //                                Destructors                                //
 // ************************************************************************* //
 
-HumanA::~HumanA(void) {}
+HumanA::~HumanA(void)
+{
+	if (DEBUG)
+		std::cout
+		<< "Destroying HumanA "
+		<< this->_name
+		<< std::endl;
+}
 
 // ************************************************************************* //
 //                                 Accessors                                 //
@@ -33,16 +47,28 @@ HumanA::~HumanA(void) {}
 
 std::string const	&HumanA::getName(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling HumanA::getName()"
+		<< std::endl;
 	return this->_name;
 }
 
 Weapon const	&HumanA::getWeapon(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling HumanA::getWeapon()"
+		<< std::endl;
 	return this->_weapon;
 }
 
 void	HumanA::setWeapon(Weapon &weapon)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling HumanA::setWeapon()"
+		<< std::endl;
 	this->_weapon = weapon;
 }
 
@@ -52,6 +78,10 @@ void	HumanA::setWeapon(Weapon &weapon)
 
 void	HumanA::attack(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling HumanA::attack()"
+		<< std::endl;
 	std::cout
 	<< this->_name
 	<< " attacks with their "

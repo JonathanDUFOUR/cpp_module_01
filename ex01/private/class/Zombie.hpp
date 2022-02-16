@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 05:15:10 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/13 14:33:45 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/16 00:31:01 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define ZOMBIE_HPP
 
 # include <string>
+
+# ifndef DEBUG
+#  define DEBUG 0
+# endif
 
 class	Zombie
 {

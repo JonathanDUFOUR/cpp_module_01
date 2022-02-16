@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:07:38 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/13 20:32:41 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/15 23:59:00 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,25 @@
 //                                Constructors                                //
 // ************************************************************************** //
 
-Karen::Karen(void) {}
+Karen::Karen(void)
+{
+	if (DEBUG)
+		std::cout
+		<< "Creating Karen"
+		<< std::endl;
+}
 
 // ************************************************************************* //
 //                                Destructors                                //
 // ************************************************************************* //
 
-Karen::~Karen(void) {}
+Karen::~Karen(void)
+{
+	if (DEBUG)
+		std::cout
+		<< "Destroying Karen"
+		<< std::endl;
+}
 
 // ************************************************************************** //
 //                          Private Member Functions                          //
@@ -31,6 +43,10 @@ Karen::~Karen(void) {}
 
 void	Karen::debug(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Karen::debug()"
+		<< std::endl;
 	std::cout << "[DEBUG]"
 	<< std::endl
 	<< "I love to get extra bacon for my 7XL-double-cheese-triple-pickle-specia\
@@ -42,6 +58,10 @@ l-ketchup burger."
 
 void	Karen::info(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Karen::info()"
+		<< std::endl;
 	std::cout << "[INFO]"
 	<< std::endl
 	<< "I cannot believe adding extra bacon cost more money."
@@ -52,6 +72,10 @@ void	Karen::info(void) const
 
 void	Karen::warning(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Karen::warning()"
+		<< std::endl;
 	std::cout << "[WARNING]"
 	<< std::endl
 	<< "I think I deserve to have some extra bacon for free."
@@ -63,6 +87,10 @@ month."
 
 void	Karen::error(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Karen::error()"
+		<< std::endl;
 	std::cout << "[ERROR]"
 	<< std::endl
 	<< "This is unacceptable, I want to speak to the manager now."
@@ -77,16 +105,20 @@ void	Karen::complain(std::string const &lvl) const
 {
 	int	i;
 
-	for (i = 0 ; Karen::g_lookup[i].fct && Karen::g_lookup[i].key.compare(lvl) ; ++i);
-	if (Karen::g_lookup[i].fct)
-		(this->*Karen::g_lookup[i].fct)();
+	if (DEBUG)
+		std::cout
+		<< "Calling Karen::complain()"
+		<< std::endl;
+	for (i = 0 ; Karen::_lookup[i].fct && Karen::_lookup[i].key.compare(lvl) ; ++i);
+	if (Karen::_lookup[i].fct)
+		(this->*Karen::_lookup[i].fct)();
 }
 
 // ************************************************************************** //
 //                             Private Attributes                             //
 // ************************************************************************** //
 
-t_keyval const	Karen::g_lookup[] = {
+t_keyval const	Karen::_lookup[] = {
 	{std::string("DEBUG"), &Karen::debug},
 	{std::string("INFO"), &Karen::info},
 	{std::string("WARNING"), &Karen::warning},
