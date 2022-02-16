@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:07:38 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/16 00:37:53 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/16 00:50:27 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,12 +122,27 @@ void	Karen::complain(std::string const &lvl) const
 	case 0:
 		this->debug();
 		std::cout << std::endl;
+		this->info();
+		std::cout << std::endl;
+		this->warning();
+		std::cout << std::endl;
+		this->error();
+		std::cout << std::endl;
+		break ;
 	case 1:
 		this->info();
 		std::cout << std::endl;
+		this->warning();
+		std::cout << std::endl;
+		this->error();
+		std::cout << std::endl;
+		break ;
 	case 2:
 		this->warning();
 		std::cout << std::endl;
+		this->error();
+		std::cout << std::endl;
+		break ;
 	case 3:
 		this->error();
 		std::cout << std::endl;
