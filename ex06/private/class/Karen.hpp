@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:03:29 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/16 00:32:28 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/17 09:58:00 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ private:
 public:
 	// Constructors
 	Karen(void);
+	Karen(Karen const &src);
 
 	// Destructors
 	~Karen(void);

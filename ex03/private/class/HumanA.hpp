@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 07:54:23 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/17 04:32:02 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/17 09:54:10 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ private:
 public:
 	// Constructors
 	HumanA(std::string const &name, Weapon &weapon);
+	HumanA(HumanA const &src);
 
 	// Destructors
 	~HumanA(void);

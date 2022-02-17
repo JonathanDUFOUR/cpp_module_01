@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 07:59:47 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/17 04:34:07 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/17 09:55:37 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ private:
 public:
 	// Constructors
 	Weapon(std::string const &type = std::string("defaultType"));
+	Weapon(Weapon const &src);
 
 	// Destructors
 	~Weapon(void);

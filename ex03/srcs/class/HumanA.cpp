@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 07:53:56 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/15 23:59:00 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/17 09:54:38 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@
 HumanA::HumanA(std::string const &name, Weapon &weapon) :
 	_name(name),
 	_weapon(weapon)
+{
+	if (DEBUG)
+		std::cout
+		<< "Creating HumanA "
+		<< this->_name
+		<< std::endl;
+}
+
+HumanA::HumanA(HumanA const &src) :
+	_name(src._name),
+	_weapon(src._weapon)
 {
 	if (DEBUG)
 		std::cout

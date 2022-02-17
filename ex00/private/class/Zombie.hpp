@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 05:15:10 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/17 03:04:58 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/17 09:52:07 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ private:
 public:
 	// Constructors
 	Zombie(std::string const &name = std::string("defaultName"));
+	Zombie(Zombie const &src);
 
 	// Destructors
 	~Zombie(void);

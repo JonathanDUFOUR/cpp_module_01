@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:07:38 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/15 23:59:00 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/17 09:57:16 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@
 // ************************************************************************** //
 
 Karen::Karen(void)
+{
+	if (DEBUG)
+		std::cout
+		<< "Creating Karen"
+		<< std::endl;
+}
+
+Karen::Karen(Karen const &src)
 {
 	if (DEBUG)
 		std::cout
