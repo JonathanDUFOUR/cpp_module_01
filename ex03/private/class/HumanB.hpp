@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 07:59:03 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/16 00:31:38 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/17 04:33:28 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ private:
 
 public:
 	// Constructors
-	HumanB(std::string const &name);
+	HumanB(std::string const &name = std::string("defaultName"));
 
 	// Destructors
 	~HumanB(void);

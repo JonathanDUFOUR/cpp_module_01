@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 05:14:56 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/15 23:59:00 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/17 04:22:50 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,6 @@
 // ************************************************************************** //
 //                                Constructors                                //
 // ************************************************************************** //
-
-Zombie::Zombie(void) :
-	_name(std::string("defaultName"))
-{
-	if (DEBUG)
-		std::cout
-		<< "Creating Zombie "
-		<< this->_name
-		<< std::endl;
-}
 
 Zombie::Zombie(std::string const &name) :
 	_name(name)
