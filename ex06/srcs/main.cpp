@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 14:11:53 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 00:24:07 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 17:35:07 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int	main(int const ac, char const **av)
 
 	if (ac != 2)
 		return __usage_err();
-	k0.complain(av[1]);
+	k0.complain(std::string(av[1]));
 	return EXIT_SUCCESS;
 }

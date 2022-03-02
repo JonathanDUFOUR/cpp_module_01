@@ -6,12 +6,14 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:07:38 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/21 11:43:09 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 17:36:12 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "class/Karen.hpp"
+
+typedef unsigned int	uint;
 
 // ************************************************************************** //
 //                                Constructors                                //
@@ -111,55 +113,19 @@ void	Karen::error(void) const
 
 void	Karen::complain(std::string const &lvl) const
 {
-	int	i;
+	uint	idx(0);
 
 	if (DEBUG)
 		std::cout
 		<< "Calling Karen::complain()"
 		<< std::endl;
-	for (i = 0 ; Karen::_lookup[i].fct && Karen::_lookup[i].key.compare(lvl) ; ++i);
-	// if (Karen::_lookup[i].fct)
-	// 	while (Karen::_lookup[i].fct)
-	// 		(this->*Karen::_lookup[i++].fct)();
-	// else
-	// 	std::cout
-	// 	<< "[ Probably complaining about insignificant problems ]"
-	// 	<< std::endl;
-	switch (i)
-	{
-	case 0:
-		this->debug();
-		std::cout << std::endl;
-		this->info();
-		std::cout << std::endl;
-		this->warning();
-		std::cout << std::endl;
-		this->error();
-		std::cout << std::endl;
-		break ;
-	case 1:
-		this->info();
-		std::cout << std::endl;
-		this->warning();
-		std::cout << std::endl;
-		this->error();
-		std::cout << std::endl;
-		break ;
-	case 2:
-		this->warning();
-		std::cout << std::endl;
-		this->error();
-		std::cout << std::endl;
-		break ;
-	case 3:
-		this->error();
-		std::cout << std::endl;
-		break ;
-	default:
-		std::cout << "[ Probably complaining about insignificant problems ]"
+	for ( ; Karen::_lookup[idx].fct && Karen::_lookup[idx].key.compare(lvl) ; ++idx);
+	if (!Karen::_lookup[idx].fct)
+		std::cout
+		<< "[ Probably complaining about insignificant problems ]"
 		<< std::endl;
-		break ;
-	}
+	while (Karen::_lookup[idx].fct)
+		(this->*Karen::_lookup[idx++].fct)();
 }
 
 // ************************************************************************** //

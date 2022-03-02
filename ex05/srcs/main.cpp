@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:02:52 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/28 22:37:23 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 17:27:04 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	main(void)
 {
 	Karen	k0;
 
-	k0.complain("INFO");
-	k0.complain("ERROR");
-	k0.complain("DEBUG");
-	k0.complain("WARNING");
+	k0.complain(std::string("INFO"));
+	k0.complain(std::string("ERROR"));
+	k0.complain(std::string("DEBUG"));
+	k0.complain(std::string("WARNING"));
 	return EXIT_SUCCESS;
 }
