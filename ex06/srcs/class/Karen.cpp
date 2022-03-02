@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:07:38 by jodufour          #+#    #+#             */
-/*   Updated: 2022/03/02 17:36:12 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 21:01:15 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void	Karen::error(void) const
 
 void	Karen::complain(std::string const &lvl) const
 {
-	uint	idx(0);
+	uint	idx(0U);
 
 	if (DEBUG)
 		std::cout
