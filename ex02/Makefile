@@ -6,15 +6,15 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/05 07:51:01 by jodufour          #+#    #+#              #
-#    Updated: 2022/02/21 11:39:38 by jodufour         ###   ########.fr        #
+#    Updated: 2022/05/19 21:49:07 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ######################################
 #              COMMANDS              #
 ######################################
-CXX			=	c++ -c
-LINK		=	c++
+CXX			=	clang++
+LINK		=	clang++
 MKDIR		=	mkdir -p
 RM			=	rm -rf
 
@@ -46,23 +46,26 @@ DEP			=	${OBJ:.o=.d}
 #######################################
 #                FLAGS                #
 #######################################
-CPPFLAGS	=	-Wall -Wextra -Werror
-CPPFLAGS	+=	-Wshadow
-CPPFLAGS	+=	-std=c++98
-CPPFLAGS	+=	-MMD -MP
+CXXFLAGS	=	-c
+CXXFLAGS	+=	-Wall -Wextra -Werror
+CXXFLAGS	+=	-Wshadow
+CXXFLAGS	+=	-std=c++98
+CXXFLAGS	+=	-MMD -MP
 
 LDFLAGS		=	
 
 ifeq (${DEBUG}, 1)
-	CPPFLAGS	+=	-g
-	CPPFLAGS	+=	-DDEBUG=1
+	CXXFLAGS	+=	-g
+	CXXFLAGS	+=	-DDEBUG=1
 endif
 
 #######################################
 #                RULES                #
 #######################################
+.PHONY: all clean fclean re fre
+
 ${NAME}: ${OBJ}
-	${LINK} ${OBJ} ${LDFLAGS} ${OUTPUT_OPTION}
+	${LINK} $^ ${LDFLAGS} ${OUTPUT_OPTION}
 
 all: ${NAME}
 
@@ -70,7 +73,7 @@ all: ${NAME}
 
 ${OBJ_DIR}%.o: ${SRC_DIR}%.cpp
 	@${MKDIR} ${@D}
-	${CXX} ${CPPFLAGS} $< ${OUTPUT_OPTION}
+	${CXX} $< ${CXXFLAGS} ${OUTPUT_OPTION}
 
 clean:
 	${RM} ${OBJ_DIR} ${NAME} vgcore.*
@@ -82,6 +85,4 @@ re: clean all
 
 fre: fclean all
 
--include /home/jodufour/Templates/mk_files/coffee.mk
-
-.PHONY: all clean fclean re fre
+-include ${HOME}/Templates/mk_files/coffee.mk
