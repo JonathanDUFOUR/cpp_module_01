@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/05 07:51:01 by jodufour          #+#    #+#              #
-#    Updated: 2022/05/19 21:49:07 by jodufour         ###   ########.fr        #
+#    Updated: 2022/10/29 08:05:18 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,8 @@ NAME		=	ex02.out
 #######################################
 #             DIRECTORIES             #
 #######################################
-SRC_DIR		=	srcs/
-OBJ_DIR		=	objs/
+SRC_DIR		=	srcs
+OBJ_DIR		=	objs
 
 ######################################
 #            SOURCE FILES            #
@@ -39,7 +39,7 @@ SRC			=	\
 #            OBJECT FILES            #
 ######################################
 OBJ			=	${SRC:.cpp=.o}
-OBJ			:=	${addprefix ${OBJ_DIR}, ${OBJ}}
+OBJ			:=	${addprefix ${OBJ_DIR}/, ${OBJ}}
 
 DEP			=	${OBJ:.o=.d}
 
@@ -71,7 +71,7 @@ all: ${NAME}
 
 -include ${DEP}
 
-${OBJ_DIR}%.o: ${SRC_DIR}%.cpp
+${OBJ_DIR}/%.o: ${SRC_DIR}/%.cpp
 	@${MKDIR} ${@D}
 	${CXX} $< ${CXXFLAGS} ${OUTPUT_OPTION}
 
